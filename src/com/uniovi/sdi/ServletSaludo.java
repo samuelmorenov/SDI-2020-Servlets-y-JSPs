@@ -15,12 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ServletSaludo")
 public class ServletSaludo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	int contador = 0;
 
-	/**
-	 * Default constructor.
-	 */
 	public ServletSaludo() {
-
+		super();
 	}
 
 	/**
@@ -29,7 +27,6 @@ public class ServletSaludo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println("<HTML>");
@@ -39,6 +36,13 @@ public class ServletSaludo extends HttpServlet {
 		if (nombre != null) {
 			out.println("Hola " + nombre + "<br>");
 		}
+		try {
+			Thread.sleep(15000);
+		} catch (InterruptedException e) {
+		}
+		out.println("ID del hilo:" + Thread.currentThread().getId() + "<br>");
+		contador++;
+		out.println("Visitas:" + contador + "<br>");
 		out.println("</BODY></HTML>");
 	}
 
