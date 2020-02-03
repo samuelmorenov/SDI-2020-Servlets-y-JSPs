@@ -20,10 +20,10 @@ public class ServletCarrito extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Default constructor.
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	public ServletCarrito() {
-		// TODO Auto-generated constructor stub
 		super();
 	}
 
@@ -51,7 +51,7 @@ public class ServletCarrito extends HttpServlet {
 		out.println("<HEAD><TITLE>Tienda SDI: carrito</TITLE></HEAD>");
 		out.println("<BODY>");
 		out.println(carritoEnHTML(carrito) + "<br>");
-		out.println("<a href=\"tienda.html\">Volver</a></BODY></HTML>");
+		out.println("<a href=\"index.jsp\">Volver</a></BODY></HTML>");
 	}
 
 	private void insertarEnCarrito(Map<String, Integer> carrito, String claveProducto) {
@@ -79,7 +79,6 @@ public class ServletCarrito extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
